@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://unpkg.com/vue@next"></script>
+	</head>
+	<body>
+		<div id="counter">
+		  Counter: {{ counter }}
+		</div>
+		
+		<script>
+		const Counter = {
+		  data() {
+		    return {
+		      counter: 4
+		    }
+		  },
+		  methods:{
+			  numChange(){
+				  this.counter++
+			  }
+		  }
+		}
+		
+		const app = Vue.createApp(Counter)
+		
+		const vm = app.mount("#counter")
+		
+		console.log(vm.counter)
+		console.log(vm.$data.counter)
+		
+		vm.counter = 100
+		
+		console.log("----------------")
+		console.log(vm.counter)
+		console.log(vm.$data.counter)
+		
+		vm.numChange()
+		console.log("----------------")
+		console.log(vm.counter)
+		console.log(vm.$data.counter)
+		
+		</script>
+	</body>
+</html>
