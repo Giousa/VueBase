@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://unpkg.com/vue@next"></script>
+	</head>
+	<body>
+		
+		<div id="item-list">
+			<ol>
+				<item-li 
+				v-for="it in dataList"
+				v-bind:item="it"
+				v-bind:key="it.id">
+				
+				</item-li>
+			</ol>
+		</div>
+		
+		<script>
+			const ItemList ={
+				data(){
+					return{
+						dataList:[
+							{id:1,content:'内容1'},
+							{id:2,content:'内容3'},
+							{id:3,content:'内容4'}
+						]
+					}
+				}
+			}
+			
+			const app = Vue.createApp(ItemList)
+			
+			app.component('item-li',{
+				props: ['item'],
+				template: `<li>{{item.content}}</li>`
+			})
+			
+			app.mount("#item-list")
+		</script>
+	</body>
+</html>
