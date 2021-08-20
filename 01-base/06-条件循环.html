@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://unpkg.com/vue@next"></script>
+	</head>
+	<body>
+		
+		<div>
+			<div id="conditional-rendering">
+				<p v-if="seen">这个展示了哦</p>
+				<button v-on:click="btnChange">切换状态</button>
+			</div>
+			
+			<div id="list-rendering">
+				<ol>
+					<li v-for="item in itemList">
+						【id: {{item.id}} -- content:{{item.content}}】
+					</li>
+				</ol>
+			</div>
+		</div>
+		
+		
+		<script>
+			const ConditionalRendering = {
+				data(){
+					return{
+						seen: true
+					}
+				},
+				methods:{
+					btnChange(){
+						this.seen = !this.seen
+					}
+				}
+			}
+			
+			const ListRendering={
+				data(){
+					return{
+						itemList:[
+							{id:1,content:'内容1'},
+							{id:2,content:'内容3'},
+							{id:3,content:'内容4'}
+						]
+					}
+				}
+			}
+			
+			Vue.createApp(ConditionalRendering).mount("#conditional-rendering")
+			Vue.createApp(ListRendering).mount("#list-rendering")
+		</script>
+	</body>
+</html>
