@@ -7,27 +7,23 @@
 	</head>
 	<body>
 		<div id="example">
-			<p>Has published books:</p>
-			<span>{{ publishedBooksMessage }}</span>
+			<div>{{ fullName }}</div>
+			<div>第一个：<input v-model="firstName" /></div>
+			<div>第二个：<input v-model="lastName" /></div>
 		</div>
 
 		<script>
 			const Example = {
 				data() {
 					return {
-						author: {
-							name: 'John Doe',
-							books: [
-								'Vue 2 - Advanced Guide',
-								'Vue 3 - Basic Guide',
-								'Vue 4 - The Mystery'
-							]
-						}
+						firstName: 'Foo',
+						lastName: 'Bar'
 					}
 				},
 				computed: {
-					publishedBooksMessage() {
-						return this.author.books.length > 0 ? 'Yes' : 'No'
+					fullName() {
+						console.log("fullName change")
+						return this.firstName + ' ' + this.lastName
 					}
 				}
 			}
