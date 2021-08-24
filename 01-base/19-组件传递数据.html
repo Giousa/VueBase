@@ -15,7 +15,7 @@
 				<blog-post v-for="item in titleList"
 				:key="item.id"
 				:title="item.title"
-				@enlarge-text="itemFontSize += 0.1"
+				@child-click="itemFontSize += 0.1"
 				></blog-post>
 			</div>
 		</div>
@@ -50,12 +50,12 @@
 				`
 				<div class="blog-post">
 					<h4>Title: {{title}}</h4>
-					<button @click="$emit('enlargeText')">
+					<button @click="$emit('childClick')">
 						Enlarge Text
 					</button>
 				</div>
 				`,
-				emits: ['enlargeText']
+				emits: ['childClick']
 				
 			})
 
